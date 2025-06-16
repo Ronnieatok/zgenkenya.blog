@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | ZGenKenya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cardo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary:  #006600;       /* Black */
+            --secondary: #bb0000;      /* Red */
+            --accent: #006600;        /* Green */
+            --light: #FFFFFF;         /* White */
+            --dark: #000000;          /* Black */
+            --gray: #6c757d;  
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cardo', serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* Header styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: var(--dark);
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links li a:hover, .nav-links li a.active {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--light);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        /* About page specific styles */
+        .about-hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/kenya.jpg') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 5%;
+        }
+        
+        .about-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 5%;
+        }
+        
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            margin-bottom: 80px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            width: ;
+            height: ;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        
+        .about-img:hover {
+            transform: scale(1.02);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+            object-fit: cover;
+        }
+        
+        .about-img img:hover {
+            transform: scale(1.05);
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .skills-section {
+            margin-bottom: 80px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .skill-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover .skill-icon {
+            transform: scale(1.2);
+        }
+        
+        .skill-card h3 {
+            margin-bottom: 15px;
+        }
+        
+        .hire-section {
+            background-color: var(--primary);
+            padding: 80px 5%;
+            color: white;
+            text-align: center;
+        }
+        
+        .hire-section h2 {
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .hire-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            color: var(--dark);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .service-card .price {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin: 20px 0;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .service-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        /* Footer styles */
+        footer {
+            background-color: #f8f9fa;
+            padding: 60px 5% 30px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 40px;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-col h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        /* Floating buttons */
+        .floating-btns {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 100;
+        }
+        
+        .floating-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .floating-btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .hire-btn {
+            background-color: var(--secondary);
+        }
+        
+        .hire-btn:hover {
+            background-color: var(--primary);
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .about-section {
+                flex-direction: column;
+            }
+            
+            .about-img {
+                width: 300px;
+                height: 300px;
+                margin-bottom: 30px;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--light);
+                flex-direction: column;
+                padding: 20px 5%;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .nav-links li a {
+                margin-left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .about-img {
+                width: 250px;
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .about-img {
+                width: 200px;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">ZGen<span>Kenya</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <h1>Hello, I'm Ronnie</h1>
+        <p>Lifestyle blogger, photographer, and tech enthusiast</p>
+    </section>
+
+    <!-- About Content -->
+    <div class="about-container">
+        <section class="about-section">
+            <div class="about-img">
+                <img src="img/ronny1.jpg" alt="Ronnie Atok">
+            </div>
+            <div class="about-content">
+                <h2>My Story</h2>
+                <p>I'm a creative soul with a passion for storytelling through various mediums. My journey began as a photography enthusiast capturing street fashion, which evolved into a lifestyle blog that now encompasses my love for technology, cinema, and music.</p>
+                <p>With a background in digital media and over 8 years of experience in content creation, I've worked with numerous brands to create authentic narratives that resonate with audiences. My approach blends technical knowledge with artistic sensibility.</p>
+                <p>When I'm not blogging or shooting, you can find me at indie film festivals, testing the latest gadgets, or exploring hidden coffee shops with perfect acoustics for my vinyl collection.</p>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <div class="section-title">
+                <h2>My Skills & Expertise</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Photography</h3>
+                    <p>Specializing in portrait, lifestyle, and street photography with both digital and film mediums.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3>Content Writing</h3>
+                    <p>Creating engaging articles, reviews, and brand narratives across multiple niches.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>Video Production</h3>
+                    <p>From concept to final edit, producing compelling video content for digital platforms.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Digital Strategy</h3>
+                    <p>Developing content strategies that drive engagement and grow audiences.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Hire Me Section -->
+    <section class="hire-section" id="hire">
+        <h2>Let's Work Together</h2>
+        <p>I'm available for collaborations, sponsored content, photography projects, and consulting. Here's how we can work together:</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Sponsored Content</h3>
+                <p>Authentic integration of your product or service into my content channels</p>
+                <div class="price">KSh 10,000</div>
+                <ul class="service-features">
+                    <li>Dedicated blog post</li>
+                    <li>Social media coverage</li>
+                    <li>Professional photography</li>
+                    <li>SEO optimization</li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary">Inquire Now</a>
+            </div>
+            
+            <div class="service-card">
+                <h3>Photography Services</h3>
+                <p>Professional photography for brands, products, or personal projects</p>
+                <div class="price">KSh 5,000/hr</div>
+                <ul class="service-features">
+                    <li>On-location shooting</li>
+                    <li>High-resolution images</li>
+                    <li>Basic retouching</li>
+                    <li>Fast turnaround</li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary">Inquire Now</a>
+            </div>
+            
+            <div class="service-card">
+                <h3>Content Consulting</h3>
+                <p>Strategy sessions to elevate your brand's content and social media</p>
+                <div class="price">KSh 5,000/hr</div>
+                <ul class="service-features">
+                    <li>Content audit</li>
+                    <li>Platform strategy</li>
+                    <li>Engagement tactics</li>
+                    <li>Ongoing support</li>
+                </ul>
+                <a href="contact.html" class="btn btn-primary">Inquire Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>About Ronnie</h3>
+                <p>Lifestyle enthusiast, tech geek, and fashion lover. I capture moments, review films, and explore the latest gadgets.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/ronnieatok"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.x.com/ronnyatok"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/ronnyatok"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="blog.html?category=lifestyle">Lifestyle</a></li>
+                    <li><a href="blog.html?category=photography">Photography</a></li>
+                    <li><a href="blog.html?category=movies-music">Movies & Music</a></li>
+                    <li><a href="blog.html?category=tech">Tech</a></li>
+                    <li><a href="blog.html?category=fashion">Fashion</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Ronnie Atok. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-btns">
+        <a href="contact.html#hire" class="floating-btn hire-btn" title="Hire Me">
+            <i class="fas fa-briefcase"></i>
+        </a>
+        <a href="#" class="floating-btn chat-btn" title="Chat" id="chatBtn">
+            <i class="fas fa-comment-dots"></i>
+        </a>
+        <a href="https://coff.ee/ronnieatok" class="floating-btn coffee-btn" title="Buy Me a Coffee">
+            <i class="fas fa-coffee"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Chat Button
+        const chatBtn = document.getElementById('chatBtn');
+        
+        chatBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Chat feature coming soon!');
+        });
+    </script>
+</body>
+</html>
